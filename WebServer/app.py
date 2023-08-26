@@ -8,9 +8,9 @@ app = Flask(__name__)
 def index():
     context = {
         "name": "Name",
-        "age": 23 
+        "age": 23
     }
     return render_template("index.html", context=context)
-    
+
 if __name__ == "__main__":
     app.run(debug=True)

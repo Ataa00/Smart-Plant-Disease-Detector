@@ -1,13 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/GFonts.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <script src="{{ url_for('static', filename='script/script.js')}}"></script>
+    </script>
 </head>
+
 <body>
-    <h1>{{ context.name }}</h1>
-    <h1>{{ context.age }}</h1>
+    <body>
+        <!-- Dr.plant logo -->
+        <header>
+            <div class="logo">
+                <img src="./static/assests/plant-logo.png" alt="Your Logo">
+            </div>
+        </header>
+        <!-- end dr.plant logo -->
+
+        <!-- website name header -->
+        <div class="header">
+
+            <h1>Smart Plant Disease Detector</h1>
+            <h2>Reliable, efficient detection</h2>
+            <p> "Our cutting-edge Artificial Intelligence technology leverages vast datasets <br> comprising millions of
+                plant
+                health indicators to ensure the success of your plant disease diagnosis."</p>
+        </div>
+        <!-- end website name header -->
+
+        <!-- all cards  -->
+        <div class="cards">
+            <!-- card one  -->
+            <div class="card card-time">
+                <h2>Real-time Detection</h2>
+                <p>
+                    Delivers immediate results for swift plant protection.</p>
+            </div>
+
+            <!-- card two -->
+            <div class="card-upload">
+                <h1>Let's get started</h1>
+                <img src="./static/assests/plant-search.png" alt="Plant Icon">
+
+                <!-- Thumbnail images will be displayed here -->
+                <div class="thumbnail-container">
+
+                </div>
+                <!-- end thumbnail -->
+                <p>Choose an option to get started:</p>
+                <div class="action-buttons">
+                    <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                    <label for="image-upload" class="upload-button">
+                        <i class="fas fa-cloud-upload-alt"></i> Upload Image
+                    </label>
+                    <button id="open-camera" class="camera-button cam">
+                        <i class="fas fa-camera"></i> Open Camera
+                    </button>
+                    <button type="submit" id="send-button" class="send-button" style="display: none;">
+                        <i class="fas fa-paper-plane"></i> Send
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- Camera Popup -->
+            <div class="camera-popup" id="camera-popup">
+                <div class="camera-container">
+                    <video id="camera-feed" autoplay playsinline></video>
+                    <button id="capture-button" class="capture-button">Capture & Upload</button>
+                    <div id="upload-message" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="card card-ai">
+                <h2>AI Algorithms</h2>
+                <p>Utilizes advanced AI algorithms for precise plant disease identification & classification.</p>
+            </div>
+        </div>
+    </body>
 </body>
 </html>
