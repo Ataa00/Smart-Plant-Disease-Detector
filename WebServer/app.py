@@ -1,6 +1,8 @@
 import os
 from flask import Flask, request, render_template, redirect, flash, url_for
 from werkzeug.utils import secure_filename
+from PlantPredictorModel.plant_model import PlantDisease
+import json
 
 app = Flask(__name__)
 
@@ -11,6 +13,10 @@ UPLOAD_FOLDER = 'static/image'
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+model = PlantDisease()
+model.load_model()
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -25,10 +31,37 @@ def index():
             print('No selected file')
             return redirect(request.url)
         if image and allowed_file(image.filename):
-            filename = secure_filename(image.filename)
+            filename = secure_filename(image.filename)  # type: ignore
             image.save(os.path.join(UPLOAD_FOLDER, filename))
-            return render_template("index.html", context={"image": filename})
-    return render_template("index.html")
+
+            image_path = os.path.abspath(filename).replace(
+                filename, url_for("static", filename="image/"+filename))
+            values, classes = model.predict(image_path, 2)
+            result = []
+            file = open("treatment.json")
+            data = json.load(file)
+            treatment = {}
+
+            if values[0] < 0.60:
+                index = 0
+                while (index < len(classes)):
+                    result.append(
+                        (classes[index], format(values[index], '.2f')))
+                    treatment[classes[index]] = data[classes[index]]
+                    index += 1
+
+            else:
+                result.append((classes[0], format(values[0], '.2f')))
+                treatment[classes[0]] = data[classes[0]]
+
+            return render_template("index.html",
+                                   context={
+                                       "imagePath": filename,
+                                       "classes": classes,
+                                       "result": result,
+                                       "treatment": treatment
+                                   })
+    return render_template("index.html", context={"image": 1})
 
 
 if __name__ == "__main__":

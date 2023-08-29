@@ -81,5 +81,39 @@
             <p>Utilizes advanced AI algorithms for precise plant disease identification & classification.</p>
         </div>
     </div>
+    {% if context.result is defined %}
+    <button id="openPopup">Results</button>
+    <div id="popupContainer" class="popup-container">
+    <span class="close-button" id="closePopup">&times;</span>
+        {% for item in context.result %}
+            <div class="popup-content">
+                <div class="popup-content-header">
+                    <h2>{{ item[0] }}</h2>
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='image/'+context.imagePath) }}">
+                    </div>
+                    <h4>Accuracy: {{ item[1] }}</h4>
+                </div>
+                {% if context.treatment[item[0]].description != "" %}
+                <div class="popup-info">
+                    <h4>Describtion:</h4>
+                    <p style="padding-top: 10px; max-width: 800px;">{{ context.treatment[item[0]].description }}</p>
+                </div>
+                {% endif %}
+                {% if context.treatment[item[0]].treatment != [] %}
+                <div class="popup-info">
+                    <h4>Treatment:</h4> 
+                    <ol style="padding-left: 20px;">
+                        {% for treat in context.treatment[item[0]].treatment %}
+                        <li class="treatment-list">{{ treat }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <script src="{{ url_for("static", filename="js/popup.js") }}"></script>
+    {% endif %}
 </body>
 </html>

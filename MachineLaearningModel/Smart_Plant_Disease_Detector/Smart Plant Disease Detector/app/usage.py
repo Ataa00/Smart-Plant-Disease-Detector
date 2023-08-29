@@ -6,8 +6,7 @@ def main():
     model = PlantDisease()
     model.load_model()
 
-    img_path = path.realpath(
-        r'MachineLaearningModel\Smart_Plant_Disease_Detector\Smart Plant Disease Detector\PlantVillage2\test\Pepper__bell___Bacterial_spot\3a03526d-0bf4-4898-9f0f-8a9c31afd3eb___JR_B.Spot 3380.JPG')
+    img_path = path.abspath('Tomato_Sick.jpeg')
 
     values, classes = model.predict(
         img_path, 3)

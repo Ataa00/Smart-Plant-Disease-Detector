@@ -1,0 +1,129 @@
+{
+  "Pepper bell Bacterial spot": {
+    "description": "Pepper Bell Bacterial Spot is a common bacterial disease caused by the pathogen Xanthomonas campestris. It affects pepper plants, causing dark, water-soaked lesions on leaves, fruit, and stems. These lesions often have a yellow halo and can lead to defoliation and fruit drop.",
+    "treatment": [
+      "Plant disease-resistant varieties and provide proper spacing between plants for good air circulation.",
+      "Remove and destroy infected plant material to prevent the spread of bacteria.",
+      "Avoid overhead irrigation which can spread the bacteria. Use drip irrigation to keep foliage dry.",
+      "Applying copper-based sprays can help control bacterial growth. Follow manufacturer's instructions.",
+      "In severe cases, consider using bactericides, following recommended application rates."
+    ]
+  },
+  "Pepper bell healthy": {
+    "description": "",
+    "treatment": []
+  },
+  "Potato Early blight": {
+    "description": "Potato Early Blight is a fungal disease caused by Alternaria solani. It affects potato plants, leading to the development of dark, concentric rings on leaves. These lesions start as small brown spots and can merge to form larger patches. Early Blight can lead to reduced plant vigor and decreased tuber yield.",
+    "treatment": [
+      "Plant disease-resistant potato varieties.",
+      "Practice crop rotation to reduce disease pressure.",
+      "Space plants adequately to ensure good air circulation.",
+      "Remove and destroy infected plant material.",
+      "Apply fungicides preventively, especially during periods of high humidity.",
+      "Water plants at the base to avoid wetting foliage.",
+      "Mulch around plants to prevent soil splashing onto leaves."
+    ]
+  },
+  "Potato Late blight": {
+    "description": "Potato Late Blight, caused by the oomycete pathogen Phytophthora infestans, is a devastating disease that can affect both potato and tomato plants. It is known for causing widespread and rapid damage. Symptoms include water-soaked lesions on leaves that turn brown and necrotic. White moldy growth can be observed on the undersides of leaves in humid conditions.",
+    "treatment": [
+      "Plant disease-resistant potato varieties when available.",
+      "Remove and destroy infected plant material immediately.",
+      "Avoid overhead irrigation; water at the base to keep foliage dry.",
+      "Apply fungicides preventively, especially during periods of high humidity.",
+      "Space plants adequately to allow air circulation.",
+      "Practice crop rotation and avoid planting potatoes near tomatoes.",
+      "Monitor weather conditions and be vigilant during periods of high humidity and rain."
+    ]
+  },
+  "Potato healthy": {
+    "description": "",
+    "treatment": []
+  },
+  "Tomato Target Spot": {
+    "description": "Tomato Target Spot, caused by the fungus Corynespora cassiicola, is a foliar disease that affects tomato plants. It manifests as circular lesions with dark centers and concentric rings on leaves. The lesions resemble targets, giving the disease its name. Target Spot can lead to defoliation and reduced fruit quality.",
+    "treatment": [
+      "Plant disease-resistant tomato varieties.",
+      "Ensure proper spacing between plants for good air circulation.",
+      "Remove and dispose of infected plant material to prevent disease spread.",
+      "Water at the base of plants to avoid wetting foliage.",
+      "Apply fungicides according to recommended schedules.",
+      "Mulch around plants to prevent soil splashing onto leaves.",
+      "Prune lower foliage to improve air circulation and reduce humidity."
+    ]
+  },
+  "Tomato Bacterial spot": {
+    "description": "Tomato Bacterial Spot is a bacterial disease caused by Xanthomonas species. It affects tomato plants, leading to the development of small, water-soaked lesions on leaves, stems, and fruit. As the lesions grow, they become raised and develop a dark, necrotic center. Bacterial Spot can result in defoliation and reduced fruit quality.",
+    "treatment": [
+      "Plant disease-resistant tomato varieties.",
+      "Space plants adequately for good air circulation.",
+      "Avoid overhead irrigation; water at the base to keep foliage dry.",
+      "Remove and destroy infected plant material promptly.",
+      "Apply copper-based sprays or bactericides as preventive measures.",
+      "Rotate crops to reduce disease pressure in subsequent years.",
+      "Disinfect tools and equipment to prevent disease spread."
+    ]
+  },
+  "Tomato Early blight": {
+    "description": "Tomato Early Blight is a common fungal disease caused by Alternaria solani. It affects tomato plants, causing dark lesions with concentric rings on older leaves. These lesions start as small, brown spots and can expand to cover large areas of the leaf. Early Blight can lead to defoliation and reduced fruit yield.",
+    "treatment": [
+      "Plant disease-resistant tomato varieties.",
+      "Space plants to ensure adequate air circulation and sunlight penetration.",
+      "Water at the base of plants to keep foliage dry.",
+      "Remove and destroy infected leaves and plant debris.",
+      "Apply fungicides preventively, especially during humid conditions.",
+      "Mulch around plants to prevent soil splashing onto leaves.",
+      "Prune lower foliage to improve air circulation."
+    ]
+  },
+  "Tomato Late blight": {
+    "description": "Tomato Late Blight, caused by the oomycete pathogen Phytophthora infestans, is a serious disease that affects both tomato and potato plants. It causes water-soaked lesions on leaves, which rapidly enlarge and turn brown. White, fuzzy growth can be seen on the undersides of leaves, especially in humid conditions.",
+    "treatment": [
+      "Plant disease-resistant tomato varieties, if available.",
+      "Remove and destroy infected plant material immediately.",
+      "Avoid overhead irrigation; water at the base to keep foliage dry.",
+      "Apply fungicides preventively, especially during humid weather.",
+      "Space plants adequately for good air circulation.",
+      "Practice crop rotation and avoid planting tomatoes near potatoes.",
+      "Monitor weather conditions closely, especially humidity and rain."
+    ]
+  },
+  "Tomato Leaf Mold": {
+    "description": "Tomato Leaf Mold, caused by the fungus Passalora fulva (formerly known as Fulvia fulva), is a common disease that affects tomato plants. It primarily affects the leaves, causing yellowish spots on the upper leaf surface and a characteristic velvety, olive-green growth on the lower leaf surface.",
+    "treatment": [
+      "Space plants adequately for good air circulation and sunlight penetration.",
+      "Avoid overhead irrigation; water at the base to keep foliage dry.",
+      "Apply fungicides preventively, especially in humid conditions.",
+      "Remove and dispose of infected leaves to reduce disease spread.",
+      "Choose tomato varieties with resistance to Leaf Mold.",
+      "Apply copper-based fungicides as a preventive measure.",
+      "Prune lower foliage to improve air circulation."
+    ]
+  },
+  "Tomato Septoria leaf spot": {
+    "description": "Tomato Septoria Leaf Spot, caused by the fungus Septoria lycopersici, is a common disease that affects tomato plants. It leads to the development of small, dark spots with a lighter center on the lower leaves. As the disease progresses, leaves may yellow, wither, and drop off.",
+    "treatment": [
+      "Plant disease-resistant tomato varieties.",
+      "Space plants adequately for air circulation and sunlight penetration.",
+      "Water at the base of plants to avoid wetting foliage.",
+      "Remove and destroy infected leaves and plant debris.",
+      "Apply fungicides preventively, especially in humid conditions.",
+      "Prune lower foliage to improve air circulation.",
+      "Mulch around plants to prevent soil splashing onto leaves."
+    ]
+  },
+  "Tomato Spider mites Two spotted spider mite": {
+    "description": "Tomato Two-Spotted Spider Mite (Tetranychus urticae) is a common pest that affects tomato plants. These tiny arachnids feed on plant sap, causing stippling (small yellow spots) on leaves. Heavy infestations can lead to leaf discoloration, bronzing, and defoliation.",
+    "treatment": [
+      "Regularly inspect plants for early signs of infestation.",
+      "Introduce natural predators like ladybugs or predatory mites.",
+      "Spray plants with a strong jet of water to dislodge mites.",
+      "Apply insecticidal soap or neem oil to control mite populations.",
+      "Use reflective mulch to deter mites from crawling onto plants.",
+      "Avoid over-fertilizing, as lush growth can attract mites.",
+      "Isolate infested plants to prevent mite spread.",
+      "Monitor plants regularly, especially during hot and dry conditions."
+    ]
+  }
+}
