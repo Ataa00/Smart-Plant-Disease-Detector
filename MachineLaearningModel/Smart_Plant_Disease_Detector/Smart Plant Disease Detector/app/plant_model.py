@@ -1,22 +1,31 @@
 import numpy as np
+from os import path
 
 from PIL import Image
 
 import torch
 from torchvision import models
-import os
 
 
 class PlantDisease:
     def __init__(self):
         self._model = None
-        self._model_path = r'D:\AI\Smart Plant Disease Detector\app\densenet121-checkpoint.pth'
-        self._change_cwd_to_closest_folder()
-
-    def _change_cwd_to_closest_folder(self):
-        current_dir = os.getcwd()
-        closest_dir = os.path.dirname(current_dir)
-        os.chdir(closest_dir)
+        self._model_path = path.realpath(
+            r'MachineLaearningModel\Smart_Plant_Disease_Detector\Smart Plant Disease Detector\app\densenet121-checkpoint.pth')
+        self._class_to_label = {
+            'Pepper__bell___Bacterial_spot': 'Pepper bell Bacterial spot',
+            'Pepper__bell___healthy': 'Pepper bell healthy',
+            'Potato___Early_blight': 'Potato Early blight',
+            'Potato___Late_blight': 'Potato Late blight',
+            'Potato___healthy': 'Potato healthy',
+            'Tomato__Target_Spot': 'Tomato Target Spot',
+            'Tomato_Bacterial_spot': 'Tomato Bacterial spot',
+            'Tomato_Early_blight': 'Tomato Early blight',
+            'Tomato_Late_blight': 'Tomato Late blight',
+            'Tomato_Leaf_Mold': 'Tomato Leaf Mold',
+            'Tomato_Septoria_leaf_spot': 'Tomato Septoria leaf spot',
+            'Tomato_Spider_mites_Two_spotted_spider_mite': 'Tomato Spider mites Two spotted spider mite',
+        }
 
     def load_model(self):
         model_checkpoint = torch.load(self._model_path)
@@ -78,5 +87,5 @@ class PlantDisease:
         values = values.cpu()
 
         classes = [idx_to_class[idx] for idx in indices.numpy()[0].tolist()]
-
+        classes = [self._class_to_label[cls] for cls in classes]
         return values, classes
