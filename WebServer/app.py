@@ -3,8 +3,10 @@ from flask import Flask, request, render_template, redirect, flash, url_for
 from werkzeug.utils import secure_filename
 from PlantPredictorModel.plant_model import PlantDisease
 import json
+from dashApp.dash import getConfusionMatrixFigure
 
 app = Flask(__name__)
+getConfusionMatrixFigure(app)
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 UPLOAD_FOLDER = 'static/image'
@@ -63,6 +65,8 @@ def index():
                                    })
     return render_template("index.html", context={"image": 1})
 
-
+@app.route("/about", methods=["GET"])
+def about():
+    return render_template("about.html")
 if __name__ == "__main__":
     app.run(debug=True)
