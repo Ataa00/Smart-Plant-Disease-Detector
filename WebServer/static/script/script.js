@@ -5,16 +5,12 @@ const openCameraButton = document.getElementById('open-camera');
 const cameraPopup = document.getElementById('camera-popup');
 const cameraFeed = document.getElementById('camera-feed');
 const captureButton = document.getElementById('capture-button');
-const uploadMessage = document.getElementById('upload-message');
-const uploadedThumbnail = document.getElementById('uploaded-thumbnail');
-const capturedThumbnail = document.getElementById('captured-thumbnail');
 const sendButton = document.getElementById('send-button'); // Added for the "Send" button
 
 // Function to reset the camera popup and message
 function resetCameraPopup() {
     cameraPopup.style.display = 'none';
     cameraFeed.srcObject = null;
-    uploadMessage.style.display = 'none';
 }
 
 // Function to simulate image upload (replace with your actual upload logic)
@@ -77,7 +73,7 @@ openCameraButton.addEventListener('click', () => {
 
 
 // Inside the captureButton event listener for camera capture
-captureButton.addEventListener('click', () => {
+captureButton.addEventListener('click',async () => {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
     canvas.width = cameraFeed.videoWidth;
@@ -85,7 +81,7 @@ captureButton.addEventListener('click', () => {
     context.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
   
     const capturedImage = canvas.toDataURL('image/jpeg');
-  
+    
     const thumbnailContainer = document.querySelector('.thumbnail-container');
   
     // Display the captured image as a thumbnail within the card
@@ -97,30 +93,46 @@ captureButton.addEventListener('click', () => {
     thumbnailContainer.style.display = 'block';
   
     sendButton.style.display = 'block';
-  
+
     resetCameraPopup();
   
     simulateImageUpload(capturedImage)
       .then(() => {
-        uploadMessage.style.display = 'block';
-        uploadMessage.textContent = 'Photo uploaded successfully.';
+        const dataTransfer = new DataTransfer();
+        const blob = dataURItoBlob(capturedImage); // Convert data URL to Blob
+        dataTransfer.items.add(new File([blob], 'captured-image.png'));
+        imageUpload.files = dataTransfer.files;
       })
       .catch((error) => {
         console.error('Error uploading image:', error);
       });
   });
 
-// Send button event listener
-sendButton.addEventListener('click', () => {
-    // Get the captured or uploaded image and send it to another place for processing
-    const thumbnailImageSrc = capturedThumbnail.querySelector('img').src || uploadedThumbnail.querySelector('img').src;
+// // Send button event listener
+// sendButton.addEventListener('click', () => {
+//     // Get the captured or uploaded image and send it to another place for processing
+//     const thumbnailImageSrc = capturedThumbnail.querySelector('img').src || uploadedThumbnail.querySelector('img').src;
 
-    // Here, you can implement your logic to send the image to another place.
-    // For example, you can create an AJAX request or use a fetch API to send the image data.
+//     // Here, you can implement your logic to send the image to another place.
+//     // For example, you can create an AJAX request or use a fetch API to send the image data.
 
-    // After sending, you can display a success message or perform other actions.
-    // For demonstration purposes, we'll display a success message.
-    displaySuccessMessage(); // Replace with your actual success handling.
+//     // After sending, you can display a success message or perform other actions.
+//     // For demonstration purposes, we'll display a success message.
+//     displaySuccessMessage(); // Replace with your actual success handling.
+// });
+
 });
 
-});
+function dataURItoBlob(dataURI) {
+    const byteString = atob(dataURI.split(',')[1]);
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    const uint8Array = new Uint8Array(arrayBuffer);
+  
+    for (let i = 0; i < byteString.length; i++) {
+      uint8Array[i] = byteString.charCodeAt(i);
+    }
+  
+    return new Blob([arrayBuffer], { type: mimeString });
+  }
+  
