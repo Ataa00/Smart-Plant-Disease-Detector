@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Disease Detector</title>
+    <link rel="icon" href="{{ url_for('static', filename='assests/tab-icon.png' ) }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/GFonts.css' ) }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <script src="{{ url_for('static', filename='script/script.js')}}"></script>
+
 </head>
 
 <body>
@@ -34,15 +36,24 @@
     <!-- all cards  -->
     <div class="cards">
         <!-- card one  -->
-        <div class="card card-time">
+        <div class="card card-time" data-tilt>
             <h2>Real-time Detection</h2>
-            <p>
-                Delivers immediate results for swift plant protection.</p>
+            <p>Our Real-time Detection feature provides immediate insights into your plant's health, ensuring quick
+                action against diseases and threats. </p>
+            <ul>
+                <li>Instant Results</li>
+                <li>Swift Action</li>
+                <li>User-Friendly</li>
+                <li>Peace of Mind</li>
+                <li>Efficiency</li>
+            </ul>
+
         </div>
 
         <!-- card two -->
-        <div class="card-upload">
+        <div class="card-upload " data-tilt data-tilt-glare data-tilt-max-glare="0.5">
             <h1>Let's get started</h1>
+            <h6>only: (tomatoes, potato, pepper) leafs allowed </h6>
             <img src="./static/assests/plant-search.png" alt="Plant Icon">
 
             <!-- Thumbnail images will be displayed here -->
@@ -53,10 +64,11 @@
             <p>Choose an option to get started:</p>
             <form method="post" enctype="multipart/form-data" action="{{ url_for('index') }}" class="action-buttons">
                 <input type="file" id="image-upload" name="image" accept="image/*" style="display: none;">
-                <label for="image-upload" class="upload-button">
+
+                <label for="image-upload" class="btn-both upload-button">
                     <i class="fas fa-cloud-upload-alt"></i> Upload Image
                 </label>
-                <button id="open-camera" class="camera-button cam">
+                <button id="open-camera" class="btn-both camera-button cam">
                     <i class="fas fa-camera"></i> Open Camera
                 </button>
                 <button type="submit" id="send-button" class="send-button" style="display: none;">
@@ -76,44 +88,54 @@
             </div>
         </div>
 
-        <div class="card card-ai">
+        <div class="card card-ai" data-tilt>
             <h2>AI Algorithms</h2>
-            <p>Utilizes advanced AI algorithms for precise plant disease identification & classification.</p>
+            <p>Our Advanced AI Algorithms offer precise identification and classification of plant diseases, ensuring
+                effective disease management.<a href="">Read More</a></p>
+            <ul>
+                <li>Cutting-edge Technology</li>
+                <li>Pinpoint Accuracy</li>
+                <li>Comprehensive Database</li>
+                <li>Saves Resources</li>
+                <li>Optimal Care</li>
+            </ul>
         </div>
     </div>
     {% if context.result is defined %}
     <button id="openPopup">Results</button>
     <div id="popupContainer" class="popup-container">
-    <span class="close-button" id="closePopup">&times;</span>
+        <span class="close-button" id="closePopup">&times;</span>
         {% for item in context.result %}
-            <div class="popup-content">
-                <div class="popup-content-header">
-                    <h2>{{ item[0] }}</h2>
-                    <div class="image">
-                        <img src="{{ url_for('static', filename='image/'+context.imagePath) }}">
-                    </div>
-                    <h4>Accuracy: {{ item[1] }}</h4>
+        <div class="popup-content">
+            <div class="popup-content-header">
+                <h2>{{ item[0] }}</h2>
+                <div class="image">
+                    <img src="{{ url_for('static', filename='image/'+context.imagePath) }}">
                 </div>
-                {% if context.treatment[item[0]].description != "" %}
-                <div class="popup-info">
-                    <h4>Describtion:</h4>
-                    <p style="padding-top: 10px; max-width: 800px;">{{ context.treatment[item[0]].description }}</p>
-                </div>
-                {% endif %}
-                {% if context.treatment[item[0]].treatment != [] %}
-                <div class="popup-info">
-                    <h4>Treatment:</h4> 
-                    <ol style="padding-left: 20px;">
-                        {% for treat in context.treatment[item[0]].treatment %}
-                        <li class="treatment-list">{{ treat }}</li>
-                        {% endfor %}
-                    </ol>
-                </div>
-                {% endif %}
+                <h4>Accuracy: {{ item[1] }}</h4>
             </div>
+            {% if context.treatment[item[0]].description != "" %}
+            <div class="popup-info">
+                <h4>Describtion:</h4>
+                <p style="padding-top: 10px; max-width: 800px;">{{ context.treatment[item[0]].description }}</p>
+            </div>
+            {% endif %}
+            {% if context.treatment[item[0]].treatment != [] %}
+            <div class="popup-info">
+                <h4>Treatment:</h4>
+                <ol style="padding-left: 20px;">
+                    {% for treat in context.treatment[item[0]].treatment %}
+                    <li class="treatment-list">{{ treat }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+            {% endif %}
+        </div>
         {% endfor %}
     </div>
-    <script src="{{ url_for("static", filename="js/popup.js") }}"></script>
+    <script src="{{ url_for(" static", filename="js/popup.js" ) }}"></script>
     {% endif %}
+    <script src="{{ url_for('static', filename='script/vanilla-tilt.js')}}"></script>
 </body>
+
 </html>
