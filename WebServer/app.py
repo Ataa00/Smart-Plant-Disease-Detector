@@ -26,18 +26,18 @@ def index():
     if request.method == "POST":
         # check if the post request has the file part
         if 'image' not in request.files:
-            print('No file part')
+            flash('No file part')
             return redirect(request.url)
         image = request.files['image']
         if image.filename == '':
-            print('No selected file')
+            flash('No selected file')
             return redirect(request.url)
         if image and allowed_file(image.filename):
             filename = secure_filename(image.filename)  # type: ignore
             image.save(os.path.join(UPLOAD_FOLDER, filename))
 
             image_path = os.path.abspath(filename).replace(
-                filename, url_for("static", filename="image/"+filename))
+                "\\"+filename, url_for("static", filename="image/"+filename)).replace("\\", "/")
             values, classes = model.predict(image_path, 2)
             result = []
             file = open("treatment.json")
@@ -65,8 +65,11 @@ def index():
                                    })
     return render_template("index.html", context={"image": 1})
 
+
 @app.route("/about", methods=["GET"])
 def about():
     return render_template("about.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

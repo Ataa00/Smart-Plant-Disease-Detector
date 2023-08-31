@@ -34,14 +34,12 @@ body {
   top: 0;
   left: 0;
   padding: 10px;
-
 }
 
 .logo img {
   width: 90%;
   height: auto;
 }
-
 
 @keyframes slideInLeft {
   0% {
@@ -73,7 +71,6 @@ body {
   font-size: 1.8em;
   font-weight: 200;
   color: hsl(0, 0%, 100%);
-
 }
 
 .header p {
@@ -100,8 +97,8 @@ body {
   border-top: 5px solid red;
   width: 20rem;
   height: 28rem;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .card-upload {
@@ -148,7 +145,6 @@ p {
   flex-direction: column;
 }
 
-
 .btn-both {
   padding: 10px 15px;
   font-size: 16px;
@@ -166,10 +162,10 @@ p {
 .upload-button,
 .camera-button {
   color: #fefefe;
-
 }
 
-.upload-button:hover, .camera-button:hover {
+.upload-button:hover,
+.camera-button:hover {
   color: #27af49;
 }
 
@@ -194,11 +190,13 @@ p {
   border-radius: 50% 50% 0 0;
 }
 
-.upload-button::before, .camera-button::before {
+.upload-button::before,
+.camera-button::before {
   height: 180%;
 }
 
-.upload-button:hover::before, .camera-button:hover::before {
+.upload-button:hover::before,
+.camera-button:hover::before {
   height: 0%;
 }
 
@@ -225,13 +223,13 @@ p {
 }
 
 .card-time ul::after {
-  text-align: end;
+  text-align: center;
   display: block;
   padding: 1rem 0rem;
 }
 
 .card-ai ul::after {
-  text-align: end;
+  text-align: center;
   display: block;
   padding: 0.6rem 0rem;
 }
@@ -373,6 +371,7 @@ p {
   right: 15px;
   font-size: 20px;
   cursor: pointer;
+  color: white;
 }
 
 .image {
