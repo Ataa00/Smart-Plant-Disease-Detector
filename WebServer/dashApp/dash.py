@@ -25,6 +25,7 @@ class_labels = [
     'Tomato Septoria leaf spot',
     'Tomato Spider mites Two spotted spider mite',
     'Tomato Target Spot'
+
 ]
 
 
@@ -42,6 +43,7 @@ def createConfustionMatrix():
 def plot_classification_report():
     # Get the number of correct predictions per class
     correct_pred = np.diag(confusionMatrix).tolist()
+
 
     # Get the number of incorrect predictions per class
     incorrect_pred = (np.sum(confusionMatrix, axis=0) - correct_pred).tolist()

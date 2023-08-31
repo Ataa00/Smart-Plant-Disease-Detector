@@ -24,6 +24,16 @@ body {
   background-size: cover;
 }
 
+.aboutTitle{
+  text-align: center;
+}
+
+.aboutBackground{
+  padding: 100px;
+  background-color: red;
+  /* background-image: url("../assests/background-leavs.jpg"); */
+}
+
 .logo {
   animation-duration: 3s;
   animation-timing-function: ease-in-out;

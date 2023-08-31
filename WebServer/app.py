@@ -29,6 +29,7 @@ def index():
             flash('No file part')
             return redirect(request.url)
         image = request.files['image']
+        print(request.files)
         if image.filename == '':
             flash('No selected file')
             return redirect(request.url)
