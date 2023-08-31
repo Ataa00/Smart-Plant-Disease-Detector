@@ -24,6 +24,16 @@ body {
   background-size: cover;
 }
 
+.aboutTitle{
+  text-align: center;
+}
+
+.aboutBackground{
+  padding: 100px;
+  background-color: red;
+  /* background-image: url("../assests/background-leavs.jpg"); */
+}
+
 .logo {
   animation-duration: 3s;
   animation-timing-function: ease-in-out;
@@ -225,13 +235,13 @@ p {
 }
 
 .card-time ul::after {
-  text-align: end;
+  text-align: center;
   display: block;
   padding: 1rem 0rem;
 }
 
 .card-ai ul::after {
-  text-align: end;
+  text-align: center;
   display: block;
   padding: 0.6rem 0rem;
 }
@@ -373,6 +383,7 @@ p {
   right: 15px;
   font-size: 20px;
   cursor: pointer;
+  color: white;
 }
 
 .image {

@@ -29,6 +29,7 @@ def index():
             print('No file part')
             return redirect(request.url)
         image = request.files['image']
+        print(request.files)
         if image.filename == '':
             print('No selected file')
             return redirect(request.url)
@@ -37,7 +38,7 @@ def index():
             image.save(os.path.join(UPLOAD_FOLDER, filename))
 
             image_path = os.path.abspath(filename).replace(
-                filename, url_for("static", filename="image/"+filename))
+                "\\"+filename, url_for("static", filename="image/"+filename)).replace("\\", "/")
             values, classes = model.predict(image_path, 2)
             result = []
             file = open("treatment.json")
