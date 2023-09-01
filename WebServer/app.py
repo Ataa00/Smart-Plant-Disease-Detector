@@ -27,12 +27,11 @@ def index():
     if request.method == "POST":
         # check if the post request has the file part
         if 'image' not in request.files:
-            flash('No file part')
+            print('No file part')
             return redirect(request.url)
         image = request.files['image']
-        print(request.files)
         if image.filename == '':
-            flash('No selected file')
+            print('No selected file')
             return redirect(request.url)
         if image and allowed_file(image.filename):
             filename = secure_filename(image.filename)  # type: ignore
