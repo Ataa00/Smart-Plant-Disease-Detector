@@ -4,11 +4,12 @@ import plotly.graph_objects as go
 import numpy as np
 from sklearn.metrics import confusion_matrix, classification_report
 import os
+from pathlib import Path
 
-y_pred = np.load(os.path.abspath('y_test_pred.npy').replace(
-    'y_test_pred.npy', "dashApp\\y_test_pred.npy"))
-y_true = np.load(os.path.abspath('y_test_true.npy').replace(
-    'y_test_true.npy', "dashApp\\y_test_true.npy"))
+BASE_DIR = Path(__file__).resolve().parent
+
+y_pred = np.load(os.path.join(BASE_DIR, 'y_test_pred.npy'))
+y_true = np.load(os.path.join(BASE_DIR, 'y_test_true.npy'))
 
 confusionMatrix = confusion_matrix(y_true, y_pred)
 
@@ -30,7 +31,7 @@ class_labels = [
 
 
 def createConfustionMatrix():
-    fig = px.imshow(confusionMatrix, title="Confusion Matrix", text_auto=".2f", # type: ignore
+    fig = px.imshow(confusionMatrix, title="Confusion Matrix", text_auto=".2f",  # type: ignore
                     color_continuous_scale='Greens', x=class_labels, y=class_labels, aspect="auto")
     fig.layout.height = 700  # type: ignore
     fig.layout.width = 1000  # type: ignore
@@ -43,7 +44,6 @@ def createConfustionMatrix():
 def plot_classification_report():
     # Get the number of correct predictions per class
     correct_pred = np.diag(confusionMatrix).tolist()
-
 
     # Get the number of incorrect predictions per class
     incorrect_pred = (np.sum(confusionMatrix, axis=0) - correct_pred).tolist()

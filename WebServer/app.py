@@ -13,6 +13,7 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 BASE_DIR = Path(__file__).resolve().parent
 IMAGE_PATH = os.path.join(BASE_DIR, "static\\image")
 
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
