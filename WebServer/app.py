@@ -48,14 +48,13 @@ def index():
                 index = 0
                 while (index < len(classes)):
                     result.append(
-                        (classes[index], format(values[index], '.2f')))
+                        (classes[index], format(values[index] * 100, '.2f')))
                     treatment[classes[index]] = data[classes[index]]
                     index += 1
 
             else:
-                result.append((classes[0], format(values[0], '.2f')))
+                result.append((classes[0], format(values[0] * 100, '.2f')))
                 treatment[classes[0]] = data[classes[0]]
-
             return render_template("index.html",
                                    context={
                                        "imagePath": filename,
