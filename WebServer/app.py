@@ -7,7 +7,7 @@ import json
 from dashApp.dash import getConfusionMatrixFigure
 
 app = Flask(__name__)
-getConfusionMatrixFigure(app)
+dash_app = getConfusionMatrixFigure(app)
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 BASE_DIR = Path(__file__).resolve().parent
@@ -67,7 +67,7 @@ def index():
 
 @app.route("/about", methods=["GET"])
 def about():
-    return render_template("about.html")
+    return dash_app.index()
 
 
 if __name__ == "__main__":
