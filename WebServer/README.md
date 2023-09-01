@@ -18,4 +18,4 @@ For more information about [Flask|Docs](https://flask.palletsprojects.com/en/2.3
 # Jinja2 Docs  
 For more information about [Jinja2|Docs](https://jinja.palletsprojects.com/en/3.1.x/templates/), [Jinja2|Youtube](https://www.youtube.com/watch?v=4yaG-jFfePc)
 # Dash-Plotly  
-For more information about [Dash|Plotly](https://dash.plotly.com}
+For more information about [Dash|Plotly](https://dash.plotly.com)
