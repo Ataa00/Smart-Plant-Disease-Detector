@@ -17,3 +17,5 @@
 For more information about [Flask|Docs](https://flask.palletsprojects.com/en/2.3.x/quickstart/#http-methods), [Flask|Youtube](https://www.youtube.com/playlist?list=PLzMcBGfZo4-n4vJJybUVV3Un_NFS5EOgX)
 # Jinja2 Docs  
 For more information about [Jinja2|Docs](https://jinja.palletsprojects.com/en/3.1.x/templates/), [Jinja2|Youtube](https://www.youtube.com/watch?v=4yaG-jFfePc)
+# Dash-Plotly  
+For more information about [Dash || Plotly](https://dash.plotly.com}
