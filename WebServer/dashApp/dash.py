@@ -2,7 +2,7 @@ from dash import dash, dcc, html
 import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix
 import os
 from pathlib import Path
 
@@ -48,10 +48,6 @@ def plot_classification_report():
     # Get the number of incorrect predictions per class
     incorrect_pred = (np.sum(confusionMatrix, axis=0) - correct_pred).tolist()
 
-    # Create a bar chart with grouped bars
-    bar_width = 0.4  # Width of each bar
-    class_indices = np.arange(len(class_labels))  # Indices for each class
-
     xlabel = 'Class'
     ylabel = 'Number of predictions'
 
@@ -76,7 +72,7 @@ def plot_classification_report():
 
 def getConfusionMatrixFigure(falsk_app):
     dash_app = dash.Dash(server=falsk_app, name="About",
-                         url_base_pathname="/about/")
+                         url_base_pathname="/about/", title="About")
 
     dash_app.layout = html.Div(
         id="container",

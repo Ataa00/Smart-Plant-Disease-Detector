@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from flask import Flask, request, render_template, redirect, flash, url_for
+from flask import Flask, request, render_template, redirect
 from werkzeug.utils import secure_filename
 from PlantPredictorModel.plant_model import PlantDisease
 import json
