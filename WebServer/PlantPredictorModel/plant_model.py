@@ -71,17 +71,17 @@ class PlantDisease:
             torch.FloatTensor)  # type: ignore
 
         with torch.no_grad():
-            self._model.to('cpu')
+            self._model.to('cpu') # type: ignore
 
             # we're using unsqueeze to add a batch dimension so that it wpuld be compatible with the model
-            self._model.eval()
-            log_ps = self._model.forward(image.unsqueeze(0))
+            self._model.eval() # type: ignore
+            log_ps = self._model.forward(image.unsqueeze(0)) # type: ignore
 
         ps = torch.exp(log_ps)
         values, indices = ps.topk(topk)
 
         idx_to_class = {val: key for key,
-                        val in self._model.class_to_idx.items()}
+                        val in self._model.class_to_idx.items()} # type: ignore
 
         indices = indices.cpu()
         values = values[0].tolist()

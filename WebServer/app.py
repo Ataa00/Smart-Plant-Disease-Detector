@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from flask import Flask, request, render_template, redirect, flash, url_for
 from werkzeug.utils import secure_filename
 from PlantPredictorModel.plant_model import PlantDisease
@@ -9,8 +10,8 @@ app = Flask(__name__)
 getConfusionMatrixFigure(app)
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-UPLOAD_FOLDER = 'static/image'
-
+BASE_DIR = Path(__file__).resolve().parent
+IMAGE_PATH = os.path.join(BASE_DIR, "static\\image")
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -35,10 +36,8 @@ def index():
             return redirect(request.url)
         if image and allowed_file(image.filename):
             filename = secure_filename(image.filename)  # type: ignore
-            image.save(os.path.join(UPLOAD_FOLDER, filename))
-
-            image_path = os.path.abspath(filename).replace(
-                "\\"+filename, url_for("static", filename="image/"+filename)).replace("\\", "/")
+            image_path = os.path.join(IMAGE_PATH, filename)
+            image.save(image_path)
             values, classes = model.predict(image_path, 2)
             result = []
             file = open("treatment.json")
